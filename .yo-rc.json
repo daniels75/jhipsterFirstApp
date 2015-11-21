@@ -1,0 +1,20 @@
+{
+  "generator-jhipster": {
+    "baseName": "firstapp",
+    "packageName": "org.daniels.jhipster.firstapp",
+    "packageFolder": "org/daniels/jhipster/firstapp",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "no",
+    "useCompass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8",
+    "rememberMeKey": "ad7be4c9b7f6af683d40fbf42939820dd2137d4f"
+  }
+}

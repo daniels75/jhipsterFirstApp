@@ -1,0 +1,49 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "book",
+            "relationshipNameCapitalized": "Book",
+            "relationshipFieldName": "book",
+            "otherEntityName": "book",
+            "relationshipType": "one-to-many",
+            "otherEntityNameCapitalized": "Book",
+            "otherEntityRelationshipName": "author"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "author",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Author",
+            "fieldNameUnderscored": "author",
+            "fieldInJavaBeanMethod": "Author",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "birthDay",
+            "fieldType": "LocalDate",
+            "fieldNameCapitalized": "BirthDay",
+            "fieldNameUnderscored": "birth_day",
+            "fieldInJavaBeanMethod": "BirthDay",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": true,
+    "fieldsContainLocalDate": true,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "fieldsContainDate": false,
+    "changelogDate": "20151121111813",
+    "dto": "no",
+    "pagination": "no",
+    "validation": true
+}
