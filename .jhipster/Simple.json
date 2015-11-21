@@ -24,7 +24,20 @@
             "fieldValidateRules": [
                 "required"
             ]
-        }
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "price",
+            "fieldType": "BigDecimal",
+            "fieldNameCapitalized": "Price",
+            "fieldNameUnderscored": "price",
+            "fieldInJavaBeanMethod": "Price",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        }		
     ],
     "fieldsContainOwnerManyToMany": false,
     "fieldsContainOwnerOneToOne": false,
