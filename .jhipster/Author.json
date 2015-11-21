@@ -14,11 +14,11 @@
     "fields": [
         {
             "fieldId": 1,
-            "fieldName": "author",
+            "fieldName": "name",
             "fieldType": "String",
-            "fieldNameCapitalized": "Author",
-            "fieldNameUnderscored": "author",
-            "fieldInJavaBeanMethod": "Author",
+            "fieldNameCapitalized": "Name",
+            "fieldNameUnderscored": "name",
+            "fieldInJavaBeanMethod": "Name",
             "fieldValidate": true,
             "fieldValidateRules": [
                 "required"
@@ -42,7 +42,7 @@
     "fieldsContainBigDecimal": false,
     "fieldsContainDateTime": false,
     "fieldsContainDate": false,
-    "changelogDate": "20151121111813",
+    "changelogDate": "20151121154603",
     "dto": "no",
     "pagination": "no",
     "validation": true

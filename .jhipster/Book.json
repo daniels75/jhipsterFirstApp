@@ -46,7 +46,7 @@
     "fieldsContainBigDecimal": true,
     "fieldsContainDateTime": false,
     "fieldsContainDate": false,
-    "changelogDate": "20151121113623",
+    "changelogDate": "20151121154820",
     "dto": "no",
     "pagination": "no",
     "validation": true

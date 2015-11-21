@@ -30,8 +30,8 @@ public class Author implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "author", nullable = false)
-    private String author;
+    @Column(name = "name", nullable = false)
+    private String name;
 
     @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
     @JsonSerialize(using = CustomLocalDateSerializer.class)
@@ -52,12 +52,12 @@ public class Author implements Serializable {
         this.id = id;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getName() {
+        return name;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public LocalDate getBirthDay() {
@@ -101,7 +101,7 @@ public class Author implements Serializable {
     public String toString() {
         return "Author{" +
                 "id=" + id +
-                ", author='" + author + "'" +
+                ", name='" + name + "'" +
                 ", birthDay='" + birthDay + "'" +
                 '}';
     }

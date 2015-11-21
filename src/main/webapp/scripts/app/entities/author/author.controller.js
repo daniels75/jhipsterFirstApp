@@ -55,7 +55,7 @@ angular.module('firstappApp')
         };
 
         $scope.clear = function () {
-            $scope.author = {author: null, birthDay: null, id: null};
+            $scope.author = {name: null, birthDay: null, id: null};
             $scope.editForm.$setPristine();
             $scope.editForm.$setUntouched();
         };

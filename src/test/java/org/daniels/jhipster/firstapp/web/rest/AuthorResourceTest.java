@@ -39,8 +39,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class AuthorResourceTest {
 
-    private static final String DEFAULT_AUTHOR = "SAMPLE_TEXT";
-    private static final String UPDATED_AUTHOR = "UPDATED_TEXT";
+    private static final String DEFAULT_NAME = "SAMPLE_TEXT";
+    private static final String UPDATED_NAME = "UPDATED_TEXT";
 
     private static final LocalDate DEFAULT_BIRTH_DAY = new LocalDate(0L);
     private static final LocalDate UPDATED_BIRTH_DAY = new LocalDate();
@@ -63,7 +63,7 @@ public class AuthorResourceTest {
     @Before
     public void initTest() {
         author = new Author();
-        author.setAuthor(DEFAULT_AUTHOR);
+        author.setName(DEFAULT_NAME);
         author.setBirthDay(DEFAULT_BIRTH_DAY);
     }
 
@@ -82,17 +82,17 @@ public class AuthorResourceTest {
         List<Author> authors = authorRepository.findAll();
         assertThat(authors).hasSize(databaseSizeBeforeCreate + 1);
         Author testAuthor = authors.get(authors.size() - 1);
-        assertThat(testAuthor.getAuthor()).isEqualTo(DEFAULT_AUTHOR);
+        assertThat(testAuthor.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testAuthor.getBirthDay()).isEqualTo(DEFAULT_BIRTH_DAY);
     }
 
     @Test
     @Transactional
-    public void checkAuthorIsRequired() throws Exception {
+    public void checkNameIsRequired() throws Exception {
         // Validate the database is empty
         assertThat(authorRepository.findAll()).hasSize(0);
         // set the field null
-        author.setAuthor(null);
+        author.setName(null);
 
         // Create the Author, which fails.
         restAuthorMockMvc.perform(post("/api/authors")
@@ -116,7 +116,7 @@ public class AuthorResourceTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(author.getId().intValue())))
-                .andExpect(jsonPath("$.[*].author").value(hasItem(DEFAULT_AUTHOR.toString())))
+                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
                 .andExpect(jsonPath("$.[*].birthDay").value(hasItem(DEFAULT_BIRTH_DAY.toString())));
     }
 
@@ -131,7 +131,7 @@ public class AuthorResourceTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(author.getId().intValue()))
-            .andExpect(jsonPath("$.author").value(DEFAULT_AUTHOR.toString()))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.birthDay").value(DEFAULT_BIRTH_DAY.toString()));
     }
 
@@ -152,7 +152,7 @@ public class AuthorResourceTest {
 		int databaseSizeBeforeUpdate = authorRepository.findAll().size();
 
         // Update the author
-        author.setAuthor(UPDATED_AUTHOR);
+        author.setName(UPDATED_NAME);
         author.setBirthDay(UPDATED_BIRTH_DAY);
         restAuthorMockMvc.perform(put("/api/authors")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -163,7 +163,7 @@ public class AuthorResourceTest {
         List<Author> authors = authorRepository.findAll();
         assertThat(authors).hasSize(databaseSizeBeforeUpdate);
         Author testAuthor = authors.get(authors.size() - 1);
-        assertThat(testAuthor.getAuthor()).isEqualTo(UPDATED_AUTHOR);
+        assertThat(testAuthor.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testAuthor.getBirthDay()).isEqualTo(UPDATED_BIRTH_DAY);
     }
 

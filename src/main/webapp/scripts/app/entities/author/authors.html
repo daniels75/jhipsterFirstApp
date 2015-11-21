@@ -31,13 +31,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label translate="firstappApp.author.author">Author</label>
-                            <input type="text" class="form-control" name="author"
-                                   ng-model="author.author" required>
+                            <label translate="firstappApp.author.name">Name</label>
+                            <input type="text" class="form-control" name="name"
+                                   ng-model="author.name" required>
 
-                            <div ng-show="editForm.author.$invalid">
+                            <div ng-show="editForm.name.$invalid">
                                 <p class="help-block"
-                                   ng-show="editForm.author.$error.required" translate="entity.validation.required">
+                                   ng-show="editForm.name.$error.required" translate="entity.validation.required">
                                     This field is required.
                                 </p>
                             </div>
@@ -93,7 +93,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th translate="firstappApp.author.author">Author</th>
+                    <th translate="firstappApp.author.name">Name</th>
                     <th translate="firstappApp.author.birthDay">BirthDay</th>
                     <th></th>
                 </tr>
@@ -101,7 +101,7 @@
             <tbody>
                 <tr ng-repeat="author in authors">
                     <td><a ui-sref="authorDetail({id:author.id})">{{author.id}}</a></td>
-                    <td>{{author.author}}</td>
+                    <td>{{author.name}}</td>
                     <td>{{author.birthDay}}</td>
                     <td>
                         <button type="submit"
