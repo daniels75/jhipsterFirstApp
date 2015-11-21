@@ -1,0 +1,21 @@
+{
+    "firstappApp": {
+        "simple" : {
+            "home": {
+                "title": "Simples",
+                "createLabel": "Créer un nouveau Simple",
+                "createOrEditLabel": "Créer ou éditer un Simple"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Simple {{ id }} ?"
+            },
+            "detail": {
+                "title": "Simple"
+            },
+            "name": "Name",
+            "model": "Model",
+            "price": "Price"
+        }
+    }
+}
+

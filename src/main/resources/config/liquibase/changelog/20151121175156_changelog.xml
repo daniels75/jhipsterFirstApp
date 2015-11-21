@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+   <changeSet author="daniels (generated)" id="1448128321105-1">
+      <createTable tableName="AUTHOR">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="AUTHORPK"/>
+         </column>
+         <column name="birth_day" type="date">
+            <constraints nullable="false"/>
+         </column>
+         <column name="name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-2">
+      <createTable tableName="BOOK">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="BOOKPK"/>
+         </column>
+         <column name="price" type="DECIMAL(10, 2)"/>
+         <column name="title" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="author_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-3">
+      <createTable tableName="JHI_AUTHORITY">
+         <column name="name" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-4">
+      <createTable tableName="JHI_PERSISTENT_AUDIT_EVENT">
+         <column autoIncrement="true" name="event_id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="JHI_PERSISTENT_AUDIT_EVENTPK"/>
+         </column>
+         <column name="event_date" type="datetime"/>
+         <column name="event_type" type="VARCHAR(255)"/>
+         <column name="principal" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-5">
+      <createTable tableName="JHI_PERSISTENT_AUDIT_EVENT_DATA">
+         <column name="event_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="value" type="VARCHAR(255)"/>
+         <column name="name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-6">
+      <createTable tableName="JHI_PERSISTENT_TOKEN">
+         <column name="series" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="ip_address" type="VARCHAR(39)"/>
+         <column name="token_date" type="date"/>
+         <column name="token_value" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="user_agent" type="VARCHAR(255)"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-7">
+      <createTable tableName="JHI_USER">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="JHI_USERPK"/>
+         </column>
+         <column name="created_by" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="created_date" type="datetime">
+            <constraints nullable="false"/>
+         </column>
+         <column name="last_modified_by" type="VARCHAR(50)"/>
+         <column name="last_modified_date" type="datetime"/>
+         <column name="activated" type="BOOLEAN">
+            <constraints nullable="false"/>
+         </column>
+         <column name="activation_key" type="VARCHAR(20)"/>
+         <column name="email" type="VARCHAR(100)"/>
+         <column name="first_name" type="VARCHAR(50)"/>
+         <column name="lang_key" type="VARCHAR(5)"/>
+         <column name="last_name" type="VARCHAR(50)"/>
+         <column name="login" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="password" type="VARCHAR(100)"/>
+         <column name="reset_date" type="datetime"/>
+         <column name="reset_key" type="VARCHAR(20)"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-8">
+      <createTable tableName="JHI_USER_AUTHORITY">
+         <column name="user_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="authority_name" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-9">
+      <createTable tableName="SIMPLE">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="SIMPLEPK"/>
+         </column>
+         <column name="model" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="price" type="DECIMAL(10, 2)"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-10">
+      <addPrimaryKey columnNames="event_id, name"
+                     tableName="JHI_PERSISTENT_AUDIT_EVENT_DATA"/>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-11">
+      <addPrimaryKey columnNames="user_id, authority_name" tableName="JHI_USER_AUTHORITY"/>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-12">
+      <addPrimaryKey columnNames="name"
+                     constraintName="JHI_AUTHORITYPK"
+                     tableName="JHI_AUTHORITY"/>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-13">
+      <addPrimaryKey columnNames="series"
+                     constraintName="JHI_PERSISTENT_TOKENPK"
+                     tableName="JHI_PERSISTENT_TOKEN"/>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-14">
+      <addUniqueConstraint columnNames="email"
+                           constraintName="UC_JHI_USEREMAIL_COL"
+                           deferrable="false"
+                           disabled="false"
+                           initiallyDeferred="false"
+                           tableName="JHI_USER"/>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-15">
+      <addUniqueConstraint columnNames="login"
+                           constraintName="UC_JHI_USERLOGIN_COL"
+                           deferrable="false"
+                           disabled="false"
+                           initiallyDeferred="false"
+                           tableName="JHI_USER"/>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-16">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="JHI_PERSISTENT_TOKEN"
+                               constraintName="FK_2n45h7bsfdr6xxsg0seqwaa45"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="JHI_USER"/>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-17">
+      <addForeignKeyConstraint baseColumnNames="authority_name"
+                               baseTableName="JHI_USER_AUTHORITY"
+                               constraintName="FK_g73w04jiqrki60ig83a9g7h6i"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="name"
+                               referencedTableName="JHI_AUTHORITY"/>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-18">
+      <addForeignKeyConstraint baseColumnNames="author_id"
+                               baseTableName="BOOK"
+                               constraintName="FK_hy0wfm8s3xuonnaavxxooxggj"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="AUTHOR"/>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-19">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="JHI_USER_AUTHORITY"
+                               constraintName="FK_impow2gbnoudrm0ytjh11vewa"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="JHI_USER"/>
+   </changeSet>
+   <changeSet author="daniels (generated)" id="1448128321105-20">
+      <addForeignKeyConstraint baseColumnNames="event_id"
+                               baseTableName="JHI_PERSISTENT_AUDIT_EVENT_DATA"
+                               constraintName="FK_lpkly6ui21e3e83dx045bjjq1"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="event_id"
+                               referencedTableName="JHI_PERSISTENT_AUDIT_EVENT"/>
+   </changeSet>
+</databaseChangeLog>

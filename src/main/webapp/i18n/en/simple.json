@@ -1,0 +1,20 @@
+{
+    "firstappApp": {
+        "simple" : {
+            "home": {
+                "title": "Simples",
+                "createLabel": "Create a new Simple",
+                "createOrEditLabel": "Create or edit a Simple"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Simple {{ id }}?"
+            },
+            "detail": {
+                "title": "Simple"
+            },
+            "name": "Name",
+            "model": "Model",
+            "price": "Price"
+        }
+    }
+}
